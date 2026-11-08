@@ -1,0 +1,3 @@
+openai>=1.66.0
+pypdf>=5.0.0
+streamlit>=1.40.0
