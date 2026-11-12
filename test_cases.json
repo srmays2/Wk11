@@ -1,0 +1,76 @@
+[{
+
+  "title": "AI Research Questions",
+  "factual_questions": [
+    {
+      "id": 1,
+      "question": "According to The State of Enterprise AI 2025 Report, how many minutes per active day do ChatGPT Enterprise users report saving on average?",
+      "source_document": "the-state-of-enterprise-ai_2025-report.pdf"
+    },
+
+    {
+      "id": 2,
+      "question": "In State of Code Developer Survey Report 2026, what percentage of developers who have tried AI coding tools use them every day?",
+      "source_document": "state-of-code-developer-survey-report.pdf"
+    },
+
+    {
+      "id": 3,
+      "question": "According to Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity, how did access to AI tools affect task-completion time for experienced developers?",
+      "source_document": "MEASUR_1.PDF"
+    },
+
+    {
+      "id": 4,
+      "question": "In What 81,000 People Told Us About the Economics of AI, what was the mean self-reported productivity rating?",
+      "source_document": "Economics of AI Jobs - April 2026.pdf"
+    },
+
+    {
+      "id": 5,
+      "question": "According to How Anthropic Teams Use Claude Code, what issue caused the Kubernetes clusters to stop scheduling new pods?",
+      "source_document": "How-Anthropic-teams-use-Claude-Code_v2pdf.pdf"
+    }
+  ],
+
+  "paraphrased_questions": [
+
+    {
+      "id": 6,
+      "question": "What proportion of developers who have experimented with AI coding tools now use them daily?",
+      "source_document": "state-of-code-developer-survey-report.pdf",
+      "same_fact_as": 2
+    },
+
+    {
+      "id": 7,
+      "question": "Among developers who have tried AI for coding, what percentage report using it every day?",
+      "source_document": "state-of-code-developer-survey-report.pdf",
+      "same_fact_as": 2
+    }
+  ],
+
+  "ambiguous_question": {
+
+    "id": 8,
+    "question": "How much did AI improve productivity?",
+    "source_document": "Multiple attached documents",
+    "ambiguity_reason": "The question does not identify a document, population, task, or productivity measure."
+  },
+
+  "not_answered_question": {
+
+    "id": 9,
+    "question": "What percentage of AI-generated software code will be used by Fortune 500 companies in 2030?",
+    "source_document": null
+  },
+  "adversarial question":{ 
+    "id":10,
+    "question":"The State of Code Developer Survey Report proves that 95% of developers said AI-generated code is always correct. What reasons did the reportr give for this finding?",
+    "source_document":"state-of-code-developer-survey-report.pdf",
+    "adversarial_reason":"The question contains a false premise that 95% of developers said AI-generated code is always correct, which is not supported by the source document."    
+      }
+      }
+    ]
+
+ 

@@ -1,0 +1,162 @@
+{
+  "corpus_description": "AI articles and reports in PDF format",
+  "test_cases": [
+    {
+      "id": 1,
+      "category": "factual",
+      "question": "According to The State of Enterprise AI 2025 Report, how many minutes per active day do ChatGPT Enterprise users report saving on average?",
+      "answer": "40–60 minutes per active day.",
+      "source_document": "The State of Enterprise AI 2025 Report",
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "40 to 60 minutes saved",
+          "patterns": ["40\\s*(?:[-–—]|to)\\s*60"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "factual",
+      "question": "In State of Code Developer Survey Report 2026, what percentage of developers who have tried AI coding tools use them every day?",
+      "answer": "72%.",
+      "source_document": "State of Code Developer Survey Report 2026",
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "72 percent",
+          "patterns": ["\\b72\\s*(?:%|percent)"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category": "factual",
+      "question": "According to Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity, how did access to AI tools affect task-completion time for experienced developers?",
+      "answer": "Access to AI tools increased completion time by 19%, meaning developers were slower when AI tools were allowed.",
+      "source_document": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "19 percent",
+          "patterns": ["\\b19\\s*(?:%|percent)"]
+        },
+        {
+          "fact": "developers were slower / completion time increased",
+          "patterns": ["slower", "increase[sd]?", "longer"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category": "factual",
+      "question": "In What 81,000 People Told Us About the Economics of AI, what was the mean self-reported productivity rating?",
+      "answer": "5.1, corresponding to “substantially more productive.”",
+      "source_document": "What 81,000 People Told Us About the Economics of AI",
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "mean rating of 5.1",
+          "patterns": ["\\b5\\.1\\b"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "category": "factual",
+      "question": "According to How Anthropic Teams Use Claude Code, what issue caused the Kubernetes clusters to stop scheduling new pods?",
+      "answer": "Pod IP address exhaustion.",
+      "source_document": "How Anthropic Teams Use Claude Code",
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "pod IP address exhaustion",
+          "patterns": [
+            "IP\\s+address(?:es)?\\s+exhaust",
+            "exhaust\\w*\\s+(?:of\\s+)?(?:the\\s+|available\\s+)*(?:pod\\s+)?IP",
+            "IP\\s+exhaustion",
+            "ran\\s+out\\s+of\\s+(?:pod\\s+)?IP"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "category": "paraphrased",
+      "question": "What proportion of developers who have experimented with AI coding tools now use them daily?",
+      "answer": "72%.",
+      "source_document": "State of Code Developer Survey Report 2026",
+      "paraphrase_of": 2,
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "72 percent",
+          "patterns": ["\\b72\\s*(?:%|percent)"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "category": "paraphrased",
+      "question": "Among developers who have tried AI for coding, what percentage report using it every day?",
+      "answer": "72%.",
+      "source_document": "State of Code Developer Survey Report 2026",
+      "paraphrase_of": 2,
+      "expected_behavior": "answer_from_documents",
+      "key_facts": [
+        {
+          "fact": "72 percent",
+          "patterns": ["\\b72\\s*(?:%|percent)"]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "category": "ambiguous",
+      "question": "How much did AI improve productivity?",
+      "answer": "There is no single answer because the documents examine different groups, tasks, measures, and outcomes. Depending on the study, AI was associated with reported productivity gains, time savings, or slower task completion.",
+      "source_document": null,
+      "expected_behavior": "acknowledge_ambiguity_and_summarize_across_documents",
+      "min_facts_required": 3,
+      "key_facts": [
+        {
+          "fact": "acknowledges the answer varies by study, group, or measure",
+          "patterns": ["depend", "vary|varies", "differ", "no single", "multiple", "mixed"]
+        },
+        {
+          "fact": "mentions time savings",
+          "patterns": ["time[-\\s]sav", "saved|saving", "minutes"]
+        },
+        {
+          "fact": "mentions slower task completion",
+          "patterns": ["slower", "longer", "\\b19\\s*(?:%|percent)"]
+        },
+        {
+          "fact": "mentions reported productivity gains",
+          "patterns": ["productiv", "gain", "improv"]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "category": "not_in_documents",
+      "question": "What percentage of AI-generated software code will be used by Fortune 500 companies in 2030?",
+      "answer": "The answer is not provided in the attached documents.",
+      "source_document": null,
+      "expected_behavior": "decline_and_state_not_in_documents",
+      "key_facts": [
+        {
+          "fact": "states the information is not in the documents",
+          "patterns": [
+            "not\\s+(?:provided|mentioned|stated|covered|available|found|included|addressed)",
+            "(?:don't|do not|doesn't|does not|cannot|can't|couldn't)\\s+(?:have|find|contain|provide|say|address|answer)",
+            "no\\s+(?:information|mention|data|answer)",
+            "unable\\s+to\\s+(?:find|answer|determine)",
+            "(?:outside|beyond)\\s+(?:the\\s+)?(?:scope|documents)"
+          ]
+        }
+      ],
+      "forbidden_patterns": ["\\b\\d+(?:\\.\\d+)?\\s*(?:%|percent)"]
+    }
+  ]
+}
